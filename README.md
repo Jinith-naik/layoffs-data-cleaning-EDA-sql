@@ -1,76 +1,109 @@
-# 🚀 Layoffs Data Cleaning with SQL
+# 🔍 Layoffs Data Cleaning & Exploratory Analysis with SQL
 
-This project focuses on cleaning and preprocessing a real-world layoffs dataset using SQL. It follows a structured ETL (Extract, Transform, Load) approach to ensure data quality for further analysis or visualization.
-
----
-
-## 📁 Files in this Repo
-
-- `layoffs.csv`: Raw dataset containing global layoffs information (company, location, date, etc.)
-- `Data_Cleaning.sql`: SQL script for cleaning the dataset — removing duplicates, handling nulls, standardizing values, and preparing for EDA (exploratory data analysis)
+This project demonstrates how to clean and analyze a real-world layoffs dataset using only SQL. It follows a structured workflow from raw data to meaningful insights — ideal for showcasing data wrangling, EDA, and reporting skills without needing Python or Excel.
 
 ---
 
-## 🛠️ Tech Stack
+## 📁 Repository Contents
 
-- **SQL** (MySQL syntax)
-- **DBMS**: Compatible with MySQL 8.0 or any system supporting `ROW_NUMBER()` and CTEs
-- Optional: Import `.csv` to your DBMS using MySQL Workbench or CLI
-
----
-
-## 🔍 Data Cleaning Steps
-
-1. **Staging Table Creation**
-   - Create a temporary copy of the original dataset.
-
-2. **Remove Duplicates**
-   - Use `ROW_NUMBER()` with `PARTITION BY` to detect duplicates.
-
-3. **Standardization**
-   - Trimming white spaces
-   - Fixing inconsistent values like "United States." ➝ "United States"
-   - Date formatting using `STR_TO_DATE()`
-
-4. **Null and Missing Values**
-   - Replacing empty strings with NULLs
-   - Inferring missing values (like industry) using self-joins
-   - Deleting rows with critical missing data
-
-5. **Final Cleanup**
-   - Dropping helper columns
-   - Cleaned data is ready for analysis
+| File | Description |
+|------|-------------|
+| `layoffs.csv` | Raw dataset |
+| `Data_Cleaning.sql` | SQL script to clean, standardize, and prepare the data |
+| `EDA.sql` | SQL queries for exploratory data analysis (EDA) |
+| `README.md` | Project summary and results |
 
 ---
 
-## 📊 Sample Use Cases After Cleaning
+## ⚙️ Tech Stack
 
-Once cleaned, this data can be used for:
-- Time series analysis of layoff trends
-- Industry-wise layoff aggregation
-- Country/region impact assessments
-- Dashboard creation (Power BI / Tableau)
+- SQL (MySQL 8.0+)
+- Any SQL GUI (MySQL Workbench / DBeaver / DB Visualizer)
 
 ---
 
-## 🧠 What You Learn
+## 🧼 Data Cleaning Summary (`Data_Cleaning.sql`)
 
-- Real-world SQL data cleaning techniques
-- Handling messy data efficiently
-- Writing readable and modular SQL scripts
-- Using CTEs, window functions, joins, and update/delete queries
+1. **Removed Duplicates** using `ROW_NUMBER()`
+2. **Standardized Fields** (e.g., trimming text, fixing country names)
+3. **Formatted Dates** using `STR_TO_DATE()`
+4. **Handled Nulls & Missing Values** by:
+   - Inferring missing industries based on company
+   - Deleting records with no layoff data
+5. **Finalized Cleaned Table** for EDA
 
 ---
 
-## ✅ To Do / Add Next
+## 📊 EDA Summary (`EDA.sql`)
 
-Here are some ideas to take this project further:
+### 🔢 Key Stats:
+- **Maximum Layoffs by a Company**:  
+  `Meta` with **11,000+** layoffs
+- **Maximum % Laid Off**:  
+  Several companies laid off **100%** of their workforce
+- **Date Range**:  
+  From **March 2020** to **March 2023**
 
-- 📈 Perform EDA on the cleaned data (in Python or SQL)
-- 📊 Create a dashboard (Power BI or Tableau)
-- 🔁 Automate data cleaning using a Python + SQL workflow
-- 📄 Add a Jupyter Notebook/Markdown report showing before vs after cleaning snapshots
-- 📂 Add a `requirements.txt` or `README_process.md` for setup instructions if using Python
+---
+
+### 💼 Top Companies by Total Layoffs:
+| Company | Total Laid Off |
+|---------|----------------|
+| Meta    | ~11,000        |
+| Amazon  | ~10,000+       |
+| Google  | ~10,000        |
+
+---
+
+### 🌍 Top Countries Affected:
+| Country | Layoffs |
+|---------|---------|
+| United States | Highest |
+| India, UK, Canada | Significant layoffs |
+
+---
+
+### 🏭 Layoffs by Industry:
+| Industry | Total Layoffs |
+|----------|---------------|
+| Consumer | Highest overall |
+| Crypto   | High in 2022 |
+| Retail   | Increasing trend |
+
+---
+
+### 📅 Monthly & Cumulative Trends:
+
+- **Monthly Layoffs** (2022-2023): Peaked in late 2022 and early 2023
+- **Rolling Total**: Helped identify compounding effect over time
+
+---
+
+### 🏆 Top 5 Companies by Layoffs per Year
+
+| Year | Top Companies (by Layoffs) |
+|------|-----------------------------|
+| 2022 | Meta, Amazon, Twitter, Google, Salesforce |
+| 2023 | Amazon, Microsoft, Google, Dell, IBM |
+
+---
+
+## 📈 Insights You Can Build On
+
+- Layoffs heavily correlate with tech industry downturn and funding freezes
+- Crypto sector showed volatility with sudden mass layoffs
+- Some startups that raised significant capital still laid off 100% of staff
+- Trend shows mass layoffs occurred in bursts, not steady patterns
+
+---
+
+## ✅ Possible Extensions
+
+You can expand this project by:
+- Creating a **Power BI / Tableau Dashboard**
+- Performing the same analysis in **Python (Pandas + SQLAlchemy)**
+- Exporting cleaned data for **machine learning or forecasting**
+- Adding **visuals** to the repo (charts/screenshots from SQL dashboards)
 
 ---
 
@@ -83,5 +116,4 @@ Here are some ideas to take this project further:
 
 ## 📜 License
 
-This project is open-source and available under the [MIT License](LICENSE).
-
+This project is licensed under the [MIT License](LICENSE).
