@@ -6,12 +6,13 @@ This project demonstrates how to clean and analyze a real-world layoffs dataset 
 
 ## 📁 Repository Contents
 
-| File | Description |
-|------|-------------|
-| `layoffs.csv` | Raw dataset |
-| `Data_Cleaning.sql` | SQL script to clean, standardize, and prepare the data |
-| `EDA.sql` | SQL queries for exploratory data analysis (EDA) |
-| `README.md` | Project summary and results |
+| File               | Description |
+|--------------------|-------------|
+| `layoffs.csv`      | Raw dataset |
+| `Data_Cleaning.sql`| SQL script to clean, standardize, and prepare the data |
+| `EDA.sql`          | SQL queries for exploratory data analysis (EDA) |
+| `eda_summary.md`   | Detailed results and findings from the EDA queries |
+| `README.md`        | Project summary and instructions |
 
 ---
 
@@ -34,7 +35,7 @@ This project demonstrates how to clean and analyze a real-world layoffs dataset 
 
 ---
 
-## 📊 EDA Summary (`EDA.sql`)
+## 📊 EDA Summary (`EDA.sql` + [`eda_summary.md`](eda_summary.md))
 
 ### 🔢 Key Stats:
 - **Maximum Layoffs by a Company**:  
@@ -43,6 +44,8 @@ This project demonstrates how to clean and analyze a real-world layoffs dataset 
   Several companies laid off **100%** of their workforce
 - **Date Range**:  
   From **March 2020** to **March 2023**
+
+📄 For full query outputs and tables, see [`eda_summary.md`](eda_summary.md)
 
 ---
 
@@ -74,7 +77,7 @@ This project demonstrates how to clean and analyze a real-world layoffs dataset 
 
 ### 📅 Monthly & Cumulative Trends:
 
-- **Monthly Layoffs** (2022-2023): Peaked in late 2022 and early 2023
+- **Monthly Layoffs** (2022–2023): Peaked in late 2022 and early 2023
 - **Rolling Total**: Helped identify compounding effect over time
 
 ---
